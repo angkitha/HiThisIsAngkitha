@@ -1,4 +1,4 @@
-import { useRef, type CSSProperties, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { DESIGN_HEIGHT, DESIGN_WIDTH } from "../content/site";
 import { useFitScale } from "../hooks/useFitScale";
 
@@ -16,6 +16,17 @@ export function ScaledStage({ children, id, label }: ScaledStageProps) {
   const frameRef = useRef<HTMLDivElement>(null);
   const scale = useFitScale(frameRef);
   const zoom = supportsZoom();
+
+  useLayoutEffect(() => {
+    const frame = frameRef.current;
+    if (!frame || frame.clientWidth >= 820) return;
+    if (id === "about") {
+      frame.scrollLeft = 0;
+      return;
+    }
+    const mid = (DESIGN_WIDTH * scale - frame.clientWidth) / 2;
+    frame.scrollLeft = Math.max(0, mid);
+  }, [id, scale]);
 
   const frameStyle: CSSProperties = zoom
     ? {

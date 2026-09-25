@@ -30,7 +30,8 @@ export function RadSoupFill() {
     }
 
     const pointer: PointerState = { x: 0, y: 0, inside: false };
-    let reduced = prefersReducedMotion();
+    const phone = window.matchMedia("(max-width: 819px)");
+    let reduced = prefersReducedMotion() || phone.matches;
     let visible = true;
     let sawVisible = false;
     let raf = 0;
@@ -76,7 +77,7 @@ export function RadSoupFill() {
 
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const onMotion = () => {
-      reduced = media.matches;
+      reduced = media.matches || phone.matches;
       if (reduced) {
         pointer.inside = false;
         if (raf) cancelAnimationFrame(raf);
@@ -108,12 +109,14 @@ export function RadSoupFill() {
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerleave", onPointerLeave);
     media.addEventListener("change", onMotion);
+    phone.addEventListener("change", onMotion);
     start();
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
       observer.disconnect();
       media.removeEventListener("change", onMotion);
+      phone.removeEventListener("change", onMotion);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerleave", onPointerLeave);
       renderer.destroy();

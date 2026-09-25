@@ -4,7 +4,11 @@ import { DESIGN_HEIGHT, DESIGN_WIDTH } from "../content/site";
 /** Top of the about-page folder art, in the 1080-tall design. */
 const FOLDER_TOP = 69;
 
+/** Narrow screens fit the design to the screen height so type stays readable. */
+const PHONE_MAX_WIDTH = 820;
+
 function measureScale(width: number, height: number) {
+  if (width < PHONE_MAX_WIDTH) return Math.min(1, height / DESIGN_HEIGHT);
   return Math.min(1, width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
 }
 

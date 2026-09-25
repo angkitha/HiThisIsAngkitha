@@ -30,6 +30,21 @@
   flex: none;
 }
 
+@media (max-width: 819px) {
+  .scaled-stage {
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .scaled-stage::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .scaled-stage__canvas {
   position: absolute;
   top: 0;
