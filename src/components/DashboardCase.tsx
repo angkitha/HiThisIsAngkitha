@@ -34,7 +34,14 @@ export function DashboardCase({
         </div>
         <div className="project-overlay__meta-item">
           <span>LINK TO DEMO</span>
-          <span className="project-overlay__chip project-overlay__chip--plain">WATCH HERE</span>
+          <a
+            className="project-overlay__chip project-overlay__chip--plain"
+            href="https://drive.google.com/file/d/16pDh7yiWEdCVeYw0e6qsgTMDxYZAAJ7c/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+          >
+            WATCH HERE
+          </a>
         </div>
       </div>
 
