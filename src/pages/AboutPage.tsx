@@ -11,23 +11,13 @@ import { aboutAssets } from "../assets/about";
 import { aboutCopy } from "../content/about";
 import "./AboutPage.css";
 
-/** How far the second and third folders travel, from the step-1 frame. */
-const DO_DROP = 642;
-const WORK_DROP = 744;
-
 /** First-folder slide into the step-2 frame. */
 const WHO_SHIFT_X = 761;
 const WHO_SHIFT_Y = -10;
-const WHO_PHOTO_X = 695;
-const WHO_PHOTO_Y = -1;
 
 /** Second-folder open: other folders drop, then the red folder slides in. */
-const WHO_DROP_FOR_DO = 1035;
-const WORK_DROP_FOR_DO = 1034;
 const DO_STAGGER_MS = 200;
 const DO_SLIDE_MS = 900;
-const DO_SHIFT_X = 415;
-const DO_PHOTO_X = -63;
 
 const FOLDER = { left: -761, top: 69, right: 559, bottom: 1433 };
 const STAMP_HOME = { left: -340, top: 718 };
@@ -917,8 +907,9 @@ export function AboutPage() {
         releaseStamp();
         return;
       }
-      if (whoNoteInputRef.current === document.activeElement) {
-        whoNoteInputRef.current.blur();
+      const note = whoNoteInputRef.current;
+      if (note && note === document.activeElement) {
+        note.blur();
         return;
       }
       closeWho();

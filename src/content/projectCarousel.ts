@@ -140,7 +140,8 @@ export function tagFontBox() {
 
 export function tagTitleLines(id: ProjectId): string[] {
   const title = projectCopy[id].title;
-  return Array.isArray(title) ? title.map((line) => line.trim()) : [title];
+  if (typeof title === "string") return [title];
+  return title.map((line) => line.trim());
 }
 
 export function tagMetrics(id: ProjectId) {
@@ -183,7 +184,7 @@ export const projectCopy = {
   },
   2: {
     label: "02",
-    title: ["FINANCIAL CALL CENTER ", "AI-ENABLEMENT + MODERNIZATION"] as const,
+    title: ["FINANCIAL CALL CENTER ", "AI-ENABLEMENT + MODERNIZATION"],
   },
   3: {
     label: "03",

@@ -69,7 +69,8 @@ const PLACEHOLDER_PERSONAS: OverlayPersona[] = [
 
 function overlayTitle(id: ProjectId) {
   const title = projectCopy[id].title;
-  return Array.isArray(title) ? title.join("").replace(/\s+/g, " ").trim() : title;
+  if (typeof title === "string") return title;
+  return title.join("").replace(/\s+/g, " ").trim();
 }
 
 function overlayTemplate(
