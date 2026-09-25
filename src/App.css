@@ -1,0 +1,51 @@
+.portfolio {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  background: #fff;
+  scrollbar-width: none;
+}
+
+.portfolio::-webkit-scrollbar {
+  display: none;
+}
+
+.scaled-stage {
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.scaled-stage__frame {
+  position: relative;
+  overflow: hidden;
+  flex: none;
+}
+
+.scaled-stage__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scaled-stage__canvas img {
+  image-rendering: auto;
+}
+
+.page {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+}

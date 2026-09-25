@@ -1,0 +1,687 @@
+.landing {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background: #fff;
+  overflow: hidden;
+  color: #000;
+}
+
+.rotate-box {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotate-box__inner {
+  flex: none;
+}
+
+.landing__content {
+  position: absolute;
+  inset: 0;
+  transform: translateY(-14px);
+}
+
+.notebook-background {
+  position: absolute;
+  left: 115px;
+  top: 61px;
+  width: 1680px;
+  height: 1066px;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+  /* Flatten multiply into this layer so a rotating stamp cannot pick up a quad. */
+  transform: translateZ(0);
+}
+
+.notebook-background img {
+  display: block;
+  width: 1680px;
+  height: 1066px;
+}
+
+/* Shader_Here (102:49): animated Rad Soup fill, 1680×829 at the notebook origin.
+   Figma 110:259 Bayer 16×16 dither (pixelSize 2, 3 levels) is a post-process in
+   the fragment shader. Multiplies into the paper so grain reads through; alpha
+   feathers the hard 829px rectangle, especially toward the binder rings. */
+.notebook-shader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1680px;
+  height: 829px;
+  overflow: hidden;
+  pointer-events: none;
+  background: none;
+}
+
+.notebook-shader__canvas {
+  display: block;
+  width: 1680px;
+  height: 829px;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+.ticket-art {
+  left: 365.8px;
+  top: 285.12px;
+  width: 1187.697px;
+  height: 531.997px;
+}
+
+.ticket-art__image {
+  position: relative;
+  width: 1164.361px;
+  height: 470.91px;
+}
+
+.ticket-art__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  pointer-events: none;
+}
+
+.ticket-red {
+  left: 399.79px;
+  top: 362.43px;
+  width: 130.252px;
+  height: 424.772px;
+}
+
+.ticket-spine {
+  left: 1176.26px;
+  top: 324.67px;
+  width: 71.378px;
+  height: 422.723px;
+}
+
+.ticket-spine__fill {
+  width: 49.135px;
+  height: 420.709px;
+  background: #942a2b;
+}
+
+.stub-top {
+  position: absolute;
+  left: 1276.2px;
+  top: 292.29px;
+  width: 253.309px;
+  height: 151.869px;
+}
+
+.intro {
+  left: 513.85px;
+  top: 440.53px;
+  width: 115.343px;
+  height: 36.15px;
+}
+
+.intro__text {
+  margin: 0;
+  font-family: Geist, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.letter--a1 {
+  left: 503.5px;
+  top: 470.68px;
+  width: 135.391px;
+  height: 177.151px;
+}
+
+.letter--a1__image {
+  position: relative;
+  width: 126.517px;
+  height: 170.682px;
+}
+
+.letter--a1__image img,
+.letter--a3__image img,
+.letter--photo__image img,
+.letter--a2__image img,
+.letter--h__image img,
+.letter--kit__image img,
+.letter--n__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.letter--n {
+  left: 567.59px;
+  top: 534.48px;
+  width: 82.285px;
+  height: 79.557px;
+}
+
+.letter--n__image {
+  position: relative;
+  width: 78.391px;
+  height: 75.506px;
+}
+
+.letter--g {
+  left: 595.76px;
+  top: 524.17px;
+  width: 73.181px;
+  height: 104.979px;
+}
+
+.letter--g__crop {
+  position: relative;
+  width: 67.892px;
+  height: 101.521px;
+  overflow: hidden;
+}
+
+.letter--g__crop img {
+  position: absolute;
+  height: 124.69%;
+  left: -29.78%;
+  top: 0;
+  width: 348.35%;
+  max-width: none;
+}
+
+.letter--g-cover {
+  left: 653.25px;
+  top: 602.13px;
+  width: 2.598px;
+  height: 10.247px;
+}
+
+.letter--kit {
+  left: 637.4px;
+  top: 528.94px;
+  width: 155.599px;
+  height: 79.028px;
+}
+
+.letter--kit__image {
+  position: relative;
+  width: 152.044px;
+  height: 71.065px;
+}
+
+.letter--h {
+  left: 748.15px;
+  top: 522.28px;
+  width: 62.618px;
+  height: 89.881px;
+}
+
+.letter--h__image {
+  position: relative;
+  width: 62.476px;
+  height: 89.783px;
+}
+
+.letter--a2 {
+  left: 783.72px;
+  top: 523.23px;
+  width: 101.831px;
+  height: 79.353px;
+}
+
+.letter--a2__image {
+  position: relative;
+  width: 98.031px;
+  height: 74.259px;
+}
+
+.letter--dot {
+  left: 840.7px;
+  top: 529px;
+  width: 9.743px;
+  height: 10.737px;
+}
+
+.letter--a3 {
+  left: 862.03px;
+  top: 440.68px;
+  width: 135.423px;
+  height: 177.204px;
+}
+
+.letter--a3__image {
+  position: relative;
+  width: 126.546px;
+  height: 170.733px;
+}
+
+.letter--photo {
+  left: 938.04px;
+  top: 485.91px;
+  width: 242.667px;
+  height: 138.974px;
+}
+
+.letter--photo__image {
+  position: relative;
+  width: 236.284px;
+  height: 126.621px;
+}
+
+.letter--mark {
+  left: 1015.75px;
+  top: 572.08px;
+  width: 2.598px;
+  height: 10.247px;
+}
+
+.bio {
+  left: 573.653px;
+  top: 612.15px;
+  width: 588.397px;
+  height: 126.867px;
+}
+
+.bio__text {
+  margin: 0;
+  width: 584.127px;
+  height: 96.024px;
+  font-family: Geist, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  text-align: right;
+  word-break: break-word;
+}
+
+.bio-lines {
+  left: 564.3px;
+  top: 611.6px;
+  width: 607.091px;
+  height: 124.537px;
+}
+
+.spine-copy {
+  left: 457.41px;
+  top: 506.86px;
+  width: 47.608px;
+  height: 268.295px;
+}
+
+.spine-copy__text {
+  margin: 0;
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: normal;
+  color: #e8e7e2;
+  white-space: pre;
+}
+
+.boarding-pass {
+  left: 1510.95px;
+  top: 393.91px;
+  width: 29.353px;
+  height: 259.542px;
+}
+
+.boarding-pass__text {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.date-stamp {
+  left: 1300.21px;
+  top: 330.26px;
+  width: 189.348px;
+  height: 85.672px;
+}
+
+.date-stamp__stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 185.582px;
+}
+
+.date-stamp__label {
+  margin: 0 0 -7px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.date-stamp__box {
+  position: relative;
+  width: 100%;
+  height: 61px;
+}
+
+.date-stamp__box img {
+  position: absolute;
+  inset: -0.82% -0.27%;
+  width: auto;
+  height: auto;
+}
+
+.date-stamp__value {
+  position: absolute;
+  left: 93.29px;
+  top: 19.82px;
+  transform: translateX(-50%);
+  margin: 0;
+  color: #3270a3;
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  line-height: normal;
+}
+
+.date-stamp__day,
+.date-stamp__time {
+  display: block;
+}
+
+.date-stamp__day {
+  font-size: 15px;
+}
+
+.date-stamp__time {
+  font-size: 10px;
+}
+
+.code {
+  font-family: Geist, system-ui, sans-serif;
+  font-weight: 500;
+  color: #000;
+}
+
+.code--email {
+  left: 1448.1px;
+  top: 443.5px;
+  width: 62.393px;
+  height: 47.793px;
+}
+
+.code--linkedin {
+  left: 1304.68px;
+  top: 450.86px;
+  width: 44.45px;
+  height: 49.064px;
+}
+
+.code__link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60.109px;
+}
+
+.code--linkedin .code__link {
+  width: 42.021px;
+  padding: 1px 0;
+}
+
+.code--linkedin .code__link:hover .code__iata,
+.code--linkedin .code__link:hover .code__detail {
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+.code__iata {
+  margin: 0 0 -3px;
+  font-size: 18px;
+  line-height: normal;
+  width: 100%;
+}
+
+.code__detail {
+  font-size: 8px;
+  line-height: normal;
+  width: 100%;
+}
+
+.journey-line {
+  left: 1348.25px;
+  top: 461.59px;
+  width: 98.132px;
+  height: 5.212px;
+}
+
+.journey-line__rule {
+  position: relative;
+  width: 98.271px;
+  height: 0;
+}
+
+.journey-line__rule img {
+  position: absolute;
+  inset: -1px 0 0;
+}
+
+.divider {
+  left: 1291.28px;
+  top: 504.46px;
+  width: 223.028px;
+  height: 11.845px;
+}
+
+.divider__rule {
+  position: relative;
+  width: 223.342px;
+  height: 0;
+}
+
+.divider__rule img {
+  position: absolute;
+  inset: -1px 0 0;
+}
+
+.nav {
+  left: 1305.8px;
+  top: 527.91px;
+  width: max-content;
+  height: 60.403px;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  width: max-content;
+}
+
+.nav__item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Geist, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: normal;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav__item span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.nav__item:hover span {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Figma 59:472 + landing gutter delta (+5, +59): 202×33.5 bar on the stub. */
+.now-bar {
+  left: 1306.91px;
+  top: 598.27px;
+  width: 203.617px;
+  height: 44.174px;
+}
+
+.now-bar__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  width: 202.125px;
+  height: 33.501px;
+  padding: 2px 8px 2px 7px;
+  background: #3270a3;
+}
+
+.now-bar__line {
+  margin: 0;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 6px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+.now-bar__line--role {
+  font-size: 6px;
+  letter-spacing: 0.02em;
+}
+
+.now-bar__strong {
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+.now-bar__label {
+  font-size: 6px;
+  font-weight: 500;
+}
+
+.qr {
+  left: 1381.73px;
+  top: 657.45px;
+  width: 58.718px;
+  height: 58.718px;
+}
+
+.qr__image {
+  position: relative;
+  width: 55.836px;
+  height: 55.836px;
+}
+
+.qr__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.stamp {
+  position: absolute;
+  left: 1111.37px;
+  top: 724.94px;
+  width: 143.707px;
+  height: 159.227px;
+  pointer-events: none;
+}
+
+.stamp img {
+  display: block;
+  width: 143.707px;
+  height: auto;
+}
+
+.circular-stamp {
+  position: absolute;
+  left: 280px;
+  top: 264px;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 50%;
+  background: transparent;
+  isolation: auto;
+  mix-blend-mode: normal;
+  clip-path: circle(50%);
+  -webkit-clip-path: circle(50%);
+  mask-image: radial-gradient(closest-side, #000 99.6%, transparent 100%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 99.6%, transparent 100%);
+}
+
+.circular-stamp__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: visible;
+  background: transparent;
+}
+
+.circular-stamp__layer img,
+.circular-stamp__layer svg {
+  display: block;
+  width: 240px;
+  height: 240px;
+  overflow: visible;
+  background: transparent;
+}
+
+.circular-stamp-spin {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation-duration: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.circular-stamp__layer--outer .circular-stamp-spin {
+  animation-name: circular-stamp-cw;
+}
+
+.circular-stamp__layer--inner .circular-stamp-spin {
+  animation-name: circular-stamp-ccw;
+}
+
+@keyframes circular-stamp-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circular-stamp-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circular-stamp-spin {
+    animation: none;
+  }
+}

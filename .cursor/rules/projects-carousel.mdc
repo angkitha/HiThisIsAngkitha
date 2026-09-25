@@ -1,0 +1,24 @@
+---
+description: Projects carousel waits 1 second of side hover before sliding
+globs: src/pages/ProjectsPage.*,src/hooks/useProjectSpotlight.ts,src/content/projectCarousel.ts
+alwaysApply: false
+---
+
+# Projects carousel hover and click
+
+The spotlight slides after the pointer has hovered the **left or right side** for **1 continuous second**, or **immediately** when that side is clicked.
+
+```ts
+// ❌ BAD — overlap the next hover wait with the in-progress slide (~100ms gap)
+wait = Math.max(DWELL_MS, lockedUntil - now);
+
+// ✅ GOOD — first hover waits 1s; later holds wait until the slide finishes, then a longer pause
+const DWELL_MS = 1000;
+const FOLLOWUP_DWELL_MS = 1600;
+wait = remainingLock + (chained ? FOLLOWUP_DWELL_MS : DWELL_MS);
+onMouseEnter={() => startDwell(sideNeighbor)};
+onMouseLeave={() => cancelDwell()};
+onClick={() => advanceSide("left" | "right")};
+```
+
+Do not skip the hover dwell with a shorter timeout or auto-advance. Click may skip the dwell, but still wait out an in-progress slide. After a slide, if the pointer is still on that side, wait for the motion to finish **plus** the follow-up dwell before sliding again. Keep the motion a smooth 3D slide between the five Figma layouts (~0.9s). Translucent left/right chevrons appear while that side is hovered.
